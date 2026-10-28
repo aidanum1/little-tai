@@ -4,6 +4,8 @@ An unofficial, fan-made premium blind-box concept for A2O SOUL's Tai: five 3D de
 **Tripo 3D API v3**, five original animated 3D boxes, collectible cards, and a 36-second cinematic launch film rendered
 with **Remotion + React Three Fiber**. A static showcase site in `site/` is ready for **GitHub Pages**.
 
+**Live showcase: https://aidanum1.github.io/little-tai/**
+
 > Unofficial fan-made concept. Not affiliated with, endorsed by or connected to A2O SOUL, its members or its agency.
 
 ## What's here

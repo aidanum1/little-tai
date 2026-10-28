@@ -1,0 +1,555 @@
+{
+  "version": 1,
+  "uploads": {
+    "8fc2f4b7e820cecbba876eceba292c904b27efe1cbf7953532e00079cdcf0700": {
+      "file": "public/photos/tai_02.jpg",
+      "sha256": "8fc2f4b7e820cecbba876eceba292c904b27efe1cbf7953532e00079cdcf0700",
+      "file_token": "file_c7659f17-df31-4faa-aeab-bc2de0249447",
+      "uploaded_at": "2026-10-28T09:59:03.082Z"
+    },
+    "4092149713eaf11ffd82eda8661b58328660ed0c025aa7a4f42a3d9b2529c95f": {
+      "file": "public/photos/tai_04.jpg",
+      "sha256": "4092149713eaf11ffd82eda8661b58328660ed0c025aa7a4f42a3d9b2529c95f",
+      "file_token": "file_cb637a39-4bdc-4081-a765-23bb4c64a746",
+      "uploaded_at": "2026-10-28T09:59:06.382Z"
+    },
+    "a134d183936fba1f8d26c92e965479ee20ec2cabe0c0f79f116e32da72399dda": {
+      "file": "public/photos/tai_01.jpg",
+      "sha256": "a134d183936fba1f8d26c92e965479ee20ec2cabe0c0f79f116e32da72399dda",
+      "file_token": "file_ccb62540-75a2-44c2-aa25-2fd488035065",
+      "uploaded_at": "2026-10-28T09:59:06.632Z"
+    },
+    "dc1329d93664dd2cd967b640fe2beedbdd4cb86a76beb91ddda3c38e1cdb75c4": {
+      "file": "public/concepts/master-base.jpg",
+      "sha256": "dc1329d93664dd2cd967b640fe2beedbdd4cb86a76beb91ddda3c38e1cdb75c4",
+      "file_token": "file_7b619436-c362-43dc-9dfd-fd05120f7f8c",
+      "uploaded_at": "2026-10-28T10:03:57.900Z"
+    },
+    "7f71dd874abe5ead0219a45a1e4c49332fcd6ce65266778843ca44fac64216a0": {
+      "file": "public/photos/tai_05.jpg",
+      "sha256": "7f71dd874abe5ead0219a45a1e4c49332fcd6ce65266778843ca44fac64216a0",
+      "file_token": "file_3bf50ca5-cc46-4907-81cf-06314aa4d66b",
+      "uploaded_at": "2026-10-28T10:06:23.108Z"
+    },
+    "6a9442f9cd6b421867e907e155948fe30728b837f9d30ab01baf750baaa26503": {
+      "file": "public/concepts/master.png",
+      "sha256": "6a9442f9cd6b421867e907e155948fe30728b837f9d30ab01baf750baaa26503",
+      "file_token": "file_20f39f53-8cfe-4d42-873c-ad597969dd1f",
+      "uploaded_at": "2026-10-28T10:06:47.664Z"
+    },
+    "10fc7b1a0fefaeb5c97d26ee0c8bc30dd3d228f296e65ca505df6ce2d445481e": {
+      "file": "public/photos/tai_03.jpg",
+      "sha256": "10fc7b1a0fefaeb5c97d26ee0c8bc30dd3d228f296e65ca505df6ce2d445481e",
+      "file_token": "file_f2ebc18a-e61d-443c-a28a-79b70dee233e",
+      "uploaded_at": "2026-10-28T10:06:24.832Z"
+    },
+    "fb8e459767ee439471f8ae4c7d1c00a9c600fb6724cfa549ef77a309070bc649": {
+      "file": "public/photos/tai_07.jpg",
+      "sha256": "fb8e459767ee439471f8ae4c7d1c00a9c600fb6724cfa549ef77a309070bc649",
+      "file_token": "file_a1483515-c66d-4c9a-9b08-d39d17939fa6",
+      "uploaded_at": "2026-10-28T10:08:56.002Z"
+    },
+    "a011280a4b04a2f9a8a4497307da75523cdf89f6c5adbb658b89bb6825272144": {
+      "file": "public/photos/tai_09.jpg",
+      "sha256": "a011280a4b04a2f9a8a4497307da75523cdf89f6c5adbb658b89bb6825272144",
+      "file_token": "file_845e2dcc-0907-4873-814d-44460a162f13",
+      "uploaded_at": "2026-10-28T10:09:02.587Z"
+    },
+    "013ec8b12d95e9b751ebb8fb3ced13896117a56dd1f79ec6030ae5f8d3b0c588": {
+      "file": "public/photos/tai_08.jpg",
+      "sha256": "013ec8b12d95e9b751ebb8fb3ced13896117a56dd1f79ec6030ae5f8d3b0c588",
+      "file_token": "file_afd9ab47-9201-4a4c-a3a1-5e7747691ff0",
+      "uploaded_at": "2026-10-28T10:09:02.771Z"
+    },
+    "72b90ec3b0d54c4027722dc052ca6d10872a7ac54ec0c1757fff7c99451e0311": {
+      "file": "public/concepts/dreamer.png",
+      "sha256": "72b90ec3b0d54c4027722dc052ca6d10872a7ac54ec0c1757fff7c99451e0311",
+      "file_token": "file_386b2823-7a1c-4148-a2e7-105755bfaed0",
+      "uploaded_at": "2026-10-28T10:12:05.657Z"
+    },
+    "e84811a1c6414bfef57fee41dff96f150b9160449c67ea1ac118c9d8431be32c": {
+      "file": "public/concepts/rebel.png",
+      "sha256": "e84811a1c6414bfef57fee41dff96f150b9160449c67ea1ac118c9d8431be32c",
+      "file_token": "file_456a2eef-3b4d-461b-b405-e121fed5dd50",
+      "uploaded_at": "2026-10-28T10:13:12.185Z"
+    },
+    "229befad6544e3f22bf9694a585c576a2b3f1c846d30d5d8ea0284f9af3e077e": {
+      "file": "public/concepts/wanderer.png",
+      "sha256": "229befad6544e3f22bf9694a585c576a2b3f1c846d30d5d8ea0284f9af3e077e",
+      "file_token": "file_6d26c7e3-19b6-4f7e-929a-193d58bc22eb",
+      "uploaded_at": "2026-10-28T10:15:52.755Z"
+    },
+    "bfec1ed4cecd4a97d7b58b27aaa657895a77e76d64a6a7cda40fa62a17664883": {
+      "file": "public/concepts/midnight.png",
+      "sha256": "bfec1ed4cecd4a97d7b58b27aaa657895a77e76d64a6a7cda40fa62a17664883",
+      "file_token": "file_ffd6b8e9-589e-4de0-be35-9f160698a7e7",
+      "uploaded_at": "2026-10-28T10:16:25.632Z"
+    },
+    "fc44a7baee5fc4717225a18dd622e177c4bb627c9f30e865d67bdec62cc733d3": {
+      "file": "public/concepts/shy.png",
+      "sha256": "fc44a7baee5fc4717225a18dd622e177c4bb627c9f30e865d67bdec62cc733d3",
+      "file_token": "file_5ee1ae7a-b29d-412c-aa7a-7eaded768413",
+      "uploaded_at": "2026-10-28T10:30:46.545Z"
+    }
+  },
+  "tasks": {
+    "concept:master": {
+      "key": "concept:master",
+      "endpoint": "/generation/image-to-image",
+      "fingerprint": "0f909b080ef19149c71ea10ace54edacf69463ebf0cd972c4a20fe9ea092b812",
+      "request": {
+        "model": "chat_image_2",
+        "inputs": [
+          "file_7b619436-c362-43dc-9dfd-fd05120f7f8c",
+          "file_c7659f17-df31-4faa-aeab-bc2de0249447",
+          "file_ccb62540-75a2-44c2-aa25-2fd488035065"
+        ],
+        "prompt": "Image[1] is a designer vinyl art-toy figurine. Keep its exact proportions — about 2.7 heads tall with an oversized head, compact short body, short legs, small hands and small shoes — and keep its pose, framing, soft matte vinyl material, sculpted hair-strand style, outfit and plain studio background. Redesign only the face and hairstyle so the figurine clearly resembles the young man in image[2] and image[3]: his slender soft oval face and small chin, his black layered hair with a long piecey fringe falling to the eyelashes and hiding the eyebrows, longer layers over the ears and nape, his gentle slightly narrow almond eyes with soft single eyelids, small delicate nose and soft natural lips with a calm, faintly dreamy expression. Keep the features stylized and toy-like (painted eyes with small highlights, smooth vinyl skin, subtle blush) — not realistic skin, not a ball-jointed doll, not anime. Full body, one single figure, standing upright facing the camera in a near-front three-quarter view, arms slightly away from the body so the silhouette is unobstructed, head and both shoes completely visible with space around them, no base or stand, plain seamless light warm-grey studio background, soft even studio lighting, sharp focus, product photography of a real vinyl collectible. No text, no logo, no watermark, no frame, no other people.",
+        "size": "1024x1536",
+        "quality": "medium",
+        "output_format": "png"
+      },
+      "task_id": "5c2a9c08-d78b-48b7-8009-b48e1e641ed4",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:03:59.446Z",
+      "model_version": "seedream_v5",
+      "history": [
+        {
+          "task_id": "50c923a4-d701-4832-a00b-8924a2628bed",
+          "status": "success",
+          "at": "2026-10-28T10:00:33.538Z"
+        },
+        {
+          "task_id": "ae58f825-7cc0-448b-8add-f7f8bdfde743",
+          "status": "success",
+          "at": "2026-10-28T10:02:01.049Z"
+        },
+        {
+          "task_id": "301bd9d7-6eb3-457b-9f46-6f232b5a05c8",
+          "status": "superseded",
+          "at": "2026-10-28T10:03:59.446Z"
+        }
+      ],
+      "completed_at": "2026-10-28T10:05:04.218831Z",
+      "credits_consumed": 10,
+      "remote_output": {
+        "generated_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "image": "public/concepts/master.png"
+      }
+    },
+    "concept:master-base": {
+      "key": "concept:master-base",
+      "endpoint": "/generation/image-to-image",
+      "fingerprint": "a548005ac18b4701feb53ae42f40b9cac254a07de8344e7f50685ccb9f4cb23c",
+      "request": {
+        "model": "seedream_v5",
+        "inputs": [
+          "file_c7659f17-df31-4faa-aeab-bc2de0249447",
+          "file_ccb62540-75a2-44c2-aa25-2fd488035065",
+          "file_cb637a39-4bdc-4081-a765-23bb4c64a746"
+        ],
+        "prompt": "A premium designer art-toy collectible figurine of the young man shown in the reference photos, original stylized interpretation that keeps his recognizable likeness: soft youthful slender oval face with a small chin, distinctive black layered hair with a long piecey fringe that falls to his eyelashes and completely hides the eyebrows, longer layers over the ears and nape; gentle dark almond-shaped eyes that are slightly narrow and softly downturned with soft single eyelids (not big round anime eyes); small delicate nose; natural soft relaxed lips; calm, gentle, slightly introspective and dreamy expression — never frowning or stern. About 2.7 heads tall: oversized but balanced head, compact body, small hands and small shoes. Softly sculpted hair strands, carefully painted eyes, subtle blush, rounded polished silhouette, soft matte vinyl with satin highlights. Cute but sophisticated, slightly melancholic, Japanese storybook sensibility. Not anime, not chibi, not a Funko Pop — a distinctive premium designer-toy look. Use image[1] and image[2] for his face and hair, and image[3] for the outfit: oversized charcoal wool coat, burgundy knit sweater, blue striped shirt collar, dark trousers, small black shoes. Neutral calm pose, arms relaxed. Full body, one single figure, standing upright facing the camera in a near-front three-quarter view, arms slightly away from the body so the silhouette is unobstructed, head and both shoes completely visible with space around them, no base or stand, plain seamless light warm-grey studio background, soft even studio lighting, sharp focus, product photography of a real vinyl collectible. No text, no logo, no watermark, no frame, no other people.",
+        "size": "1728x2304",
+        "output_format": "png"
+      },
+      "task_id": "ae58f825-7cc0-448b-8add-f7f8bdfde743",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:00:33.538Z",
+      "model_version": "seedream_v5",
+      "history": [
+        {
+          "task_id": "50c923a4-d701-4832-a00b-8924a2628bed",
+          "status": "success",
+          "at": "2026-10-28T10:00:33.538Z"
+        }
+      ],
+      "completed_at": "2026-10-28T10:01:26.379426Z",
+      "credits_consumed": 5,
+      "remote_output": {
+        "generated_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "image": "public/concepts/master-base.jpg"
+      }
+    },
+    "concept:dreamer": {
+      "key": "concept:dreamer",
+      "endpoint": "/generation/image-to-image",
+      "fingerprint": "03822f0a944fa09abe0167d162d5573576364885b1b03d0da86e768afccd94d5",
+      "request": {
+        "model": "chat_image_2",
+        "inputs": [
+          "file_6d22a7e4-9f37-4e93-b7c3-9110fd574bc3",
+          "file_ccb62540-75a2-44c2-aa25-2fd488035065",
+          "file_c7659f17-df31-4faa-aeab-bc2de0249447"
+        ],
+        "prompt": "Edition 'The Dreamer'. Keep the exact same character from image[1]. Expression: soft, thoughtful gaze looking slightly upward, lips gently closed, faint blush. Pose: standing, his right hand raised to chest height holding a small translucent powder-blue star, the other arm relaxed at his side. Outfit unchanged: oversized charcoal wool coat, burgundy sweater, blue striped shirt collar. Accent colors powder blue, cream and deep navy. Image[1] is the master figurine: the face, head size, hair silhouette, eye style, 2.7-heads-tall body proportions, short legs and vinyl material must match image[1] exactly — it is the same collectible toy in a new edition. Full body, one single figure, standing upright facing the camera in a near-front three-quarter view, arms slightly away from the body so the silhouette is unobstructed, head and both shoes completely visible with space around them, no base or stand, plain seamless light warm-grey studio background, soft even studio lighting, sharp focus, product photography of a real vinyl collectible. No text, no logo, no watermark, no frame, no other people.",
+        "size": "1024x1536",
+        "quality": "medium",
+        "output_format": "png"
+      },
+      "task_id": "88594067-d3db-4736-bdae-d146fa17a6d2",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:06:25.627Z",
+      "model_version": "seedream_v5",
+      "completed_at": "2026-10-28T10:07:07.015297Z",
+      "credits_consumed": 10,
+      "remote_output": {
+        "generated_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "image": "public/concepts/dreamer.png"
+      }
+    },
+    "concept:wanderer": {
+      "key": "concept:wanderer",
+      "endpoint": "/generation/image-to-image",
+      "fingerprint": "130fcd86554a2025eae1239dc1992132e0a7b44ba1d2e865bcadff34c6d34ceb",
+      "request": {
+        "model": "chat_image_2",
+        "inputs": [
+          "file_20f39f53-8cfe-4d42-873c-ad597969dd1f",
+          "file_f2ebc18a-e61d-443c-a28a-79b70dee233e",
+          "file_ccb62540-75a2-44c2-aa25-2fd488035065"
+        ],
+        "prompt": "Edition 'The Wanderer'. Keep the exact same character from image[1]. Expression: curious, distant gaze looking off to the side as if seeing somewhere new. Pose: standing as though about to set off, one hand holding a small cream-colored vintage suitcase at his side, a tiny folded paper star tucked into the suitcase strap. Outfit: a longer charcoal coat reaching below the knees, midnight-blue sweater, cream collared shirt, a forest-green knitted scarf. Accent colors forest green, midnight blue and warm cream. Image[1] is the master figurine: the face, head size, hair silhouette, eye style, 2.7-heads-tall body proportions, short legs and vinyl material must match image[1] exactly — it is the same collectible toy in a new edition. Full body, one single figure, standing upright facing the camera in a near-front three-quarter view, arms slightly away from the body so the silhouette is unobstructed, head and both shoes completely visible with space around them, no base or stand, plain seamless light warm-grey studio background, soft even studio lighting, sharp focus, product photography of a real vinyl collectible. No text, no logo, no watermark, no frame, no other people.",
+        "size": "1024x1536",
+        "quality": "medium",
+        "output_format": "png"
+      },
+      "task_id": "c2954f92-21e8-4811-83ce-558e410635be",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:07:47.904Z",
+      "model_version": "seedream_v5",
+      "completed_at": "2026-10-28T10:08:26.861037Z",
+      "credits_consumed": 10,
+      "remote_output": {
+        "generated_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "image": "public/concepts/wanderer.png"
+      }
+    },
+    "concept:rebel": {
+      "key": "concept:rebel",
+      "endpoint": "/generation/image-to-image",
+      "fingerprint": "e3c28b2c771639b30cc1a452d03a55973128125d7706f6cfef5786996ef1256b",
+      "request": {
+        "model": "chat_image_2",
+        "inputs": [
+          "file_2a964b78-8d00-4e57-bb3d-5df8148357e2",
+          "file_3bf50ca5-cc46-4907-81cf-06314aa4d66b",
+          "file_f2ebc18a-e61d-443c-a28a-79b70dee233e"
+        ],
+        "prompt": "Edition 'The Little Rebel'. Keep the exact same character from image[1]. Expression: slightly mischievous smirk, direct confident gaze at the viewer, head tilted a little to one side. Pose: one hand tucked inside his coat pocket, the other arm relaxed. Outfit: darker version — near-black charcoal coat, dark shirt, subtle burgundy sweater accents, a small polished metallic silver star pin on the coat lapel. Accent colors charcoal, black, burgundy and silver. Image[1] is the master figurine: the face, head size, hair silhouette, eye style, 2.7-heads-tall body proportions, short legs and vinyl material must match image[1] exactly — it is the same collectible toy in a new edition. Full body, one single figure, standing upright facing the camera in a near-front three-quarter view, arms slightly away from the body so the silhouette is unobstructed, head and both shoes completely visible with space around them, no base or stand, plain seamless light warm-grey studio background, soft even studio lighting, sharp focus, product photography of a real vinyl collectible. No text, no logo, no watermark, no frame, no other people.",
+        "size": "1024x1536",
+        "quality": "medium",
+        "output_format": "png"
+      },
+      "task_id": "82377775-c818-4edb-9d86-5c0844fafe05",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:08:51.619Z",
+      "model_version": "seedream_v5",
+      "completed_at": "2026-10-28T10:09:33.976618Z",
+      "credits_consumed": 10,
+      "remote_output": {
+        "generated_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "image": "public/concepts/rebel.png"
+      }
+    },
+    "concept:midnight": {
+      "key": "concept:midnight",
+      "endpoint": "/generation/image-to-image",
+      "fingerprint": "bfe06c1de219f8d9af6d6577ca9b909a0b513df4a59cc26b44befbe231e9efdc",
+      "request": {
+        "model": "chat_image_2",
+        "inputs": [
+          "file_20f39f53-8cfe-4d42-873c-ad597969dd1f",
+          "file_845e2dcc-0907-4873-814d-44460a162f13",
+          "file_a1483515-c66d-4c9a-9b08-d39d17939fa6",
+          "file_afd9ab47-9201-4a4c-a3a1-5e7747691ff0"
+        ],
+        "prompt": "Secret Edition 'The Midnight Star' — the rare chase figure, noticeably more elaborate and luxurious. Keep the exact same character from image[1], and take the outfit from image[2] and image[3]: a black long coat and dark shirt with a deep-red shimmering glitter panel running diagonally down the front. Material: deep midnight-black glossy vinyl, burgundy translucent accents, tiny metallic gold star details scattered on the coat, subtle pearlescent highlights on the black hair. Expression: quiet, mysterious and elegant, calm half-lidded eyes. Pose: standing calmly, holding a glowing translucent dark-red star at chest height. Image[1] is the master figurine: the face, head size, hair silhouette, eye style, 2.7-heads-tall body proportions, short legs and vinyl material must match image[1] exactly — it is the same collectible toy in a new edition. Full body, one single figure, standing upright facing the camera in a near-front three-quarter view, arms slightly away from the body so the silhouette is unobstructed, head and both shoes completely visible with space around them, no base or stand, plain seamless light warm-grey studio background, soft even studio lighting, sharp focus, product photography of a real vinyl collectible. No text, no logo, no watermark, no frame, no other people.",
+        "size": "1024x1536",
+        "quality": "medium",
+        "output_format": "png"
+      },
+      "task_id": "ed4b8244-e5be-40c6-b79a-059872c38ffc",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:09:36.184Z",
+      "model_version": "seedream_v5",
+      "completed_at": "2026-10-28T10:10:22.672039Z",
+      "credits_consumed": 10,
+      "remote_output": {
+        "generated_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "image": "public/concepts/midnight.png"
+      }
+    },
+    "concept:shy": {
+      "key": "concept:shy",
+      "endpoint": "/generation/image-to-image",
+      "fingerprint": "61dea02ab95d7dc026f229d0f2dc5f0e5548efe7ef90f5d5b1dfe0fd1bf46e3e",
+      "request": {
+        "model": "chat_image_2",
+        "inputs": [
+          "file_20f39f53-8cfe-4d42-873c-ad597969dd1f",
+          "file_cb637a39-4bdc-4081-a765-23bb4c64a746",
+          "file_c7659f17-df31-4faa-aeab-bc2de0249447"
+        ],
+        "prompt": "Edition 'The Shy One'. Keep the exact same character from image[1]. Expression: a small hesitant smile, eyes glancing to the side, stronger pink blush. Pose: both small hands held together in front of his waist holding a tiny ivory folded letter, shoulders slightly drawn inward, head tilted down a little. A tiny pale-pink heart charm pinned to the coat. Outfit: the same charcoal coat over a burgundy sweater and ivory collared shirt. Accent colors dusty pink, burgundy and ivory. Image[1] is the master figurine: the face, head size, hair silhouette, eye style, 2.7-heads-tall body proportions, short legs and vinyl material must match image[1] exactly — it is the same collectible toy in a new edition. Full body, one single figure, standing upright facing the camera in a near-front three-quarter view, arms slightly away from the body so the silhouette is unobstructed, head and both shoes completely visible with space around them, no base or stand, plain seamless light warm-grey studio background, soft even studio lighting, sharp focus, product photography of a real vinyl collectible. No text, no logo, no watermark, no frame, no other people.",
+        "size": "1024x1536",
+        "quality": "medium",
+        "output_format": "png"
+      },
+      "task_id": "a4bc156e-ae1f-4895-a71b-a92c1e08f050",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:11:55.655Z",
+      "model_version": "chat_image_2",
+      "completed_at": "2026-10-28T10:12:50.053306Z",
+      "credits_consumed": 10,
+      "remote_output": {
+        "generated_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "image": "public/concepts/shy.png"
+      }
+    },
+    "model:dreamer": {
+      "key": "model:dreamer",
+      "endpoint": "/generation/image-to-model",
+      "fingerprint": "2405d95f41f134ebfaf589d17e78891f08dc178b466beeed89490a30b8cb25e2",
+      "request": {
+        "input": "file_386b2823-7a1c-4148-a2e7-105755bfaed0",
+        "model": "P2-20260801",
+        "texture": true,
+        "pbr": true,
+        "quad": true,
+        "face_limit": 20000,
+        "texture_quality": "detailed",
+        "texture_alignment": "original_image",
+        "model_seed": 20260801,
+        "texture_seed": 1028,
+        "export_uv": true
+      },
+      "task_id": "1c32a4f9-ab78-4876-9eee-27e94559c621",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:12:07.572Z",
+      "model_version": "P2-20260801",
+      "completed_at": "2026-10-28T10:15:28.100845Z",
+      "credits_consumed": 120,
+      "remote_output": {
+        "model_url": "<signed url omitted>",
+        "rendered_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "model": "public/models/figure-01-dreamer.glb",
+        "preview": "public/models/previews/figure-01-dreamer.png",
+        "model_fbx": "public/models/figure-01-dreamer.fbx"
+      }
+    },
+    "model:rebel": {
+      "key": "model:rebel",
+      "endpoint": "/generation/image-to-model",
+      "fingerprint": "3452b62d6a1610b4889c0fbf44a7ab9f4d8ed287a5c0aa8000a0a1d29a0196be",
+      "request": {
+        "input": "file_456a2eef-3b4d-461b-b405-e121fed5dd50",
+        "model": "P2-20260801",
+        "texture": true,
+        "pbr": true,
+        "quad": true,
+        "face_limit": 20000,
+        "texture_quality": "detailed",
+        "texture_alignment": "original_image",
+        "model_seed": 20260801,
+        "texture_seed": 1028,
+        "export_uv": true
+      },
+      "task_id": "248b0547-6861-4b9f-867b-90fce1558a6f",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:13:13.899Z",
+      "model_version": "P2-20260801",
+      "completed_at": "2026-10-28T10:15:56.257724Z",
+      "credits_consumed": 120,
+      "remote_output": {
+        "model_url": "<signed url omitted>",
+        "rendered_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "model": "public/models/figure-03-rebel.glb",
+        "preview": "public/models/previews/figure-03-rebel.png",
+        "model_fbx": "public/models/figure-03-rebel.fbx"
+      }
+    },
+    "model:wanderer": {
+      "key": "model:wanderer",
+      "endpoint": "/generation/image-to-model",
+      "fingerprint": "c7d99bc08a4cad5e285181b89e58a9e8bda58fdba457301b100fd3ba0e1bb029",
+      "request": {
+        "input": "file_6d26c7e3-19b6-4f7e-929a-193d58bc22eb",
+        "model": "P2-20260801",
+        "texture": true,
+        "pbr": true,
+        "quad": true,
+        "face_limit": 20000,
+        "texture_quality": "detailed",
+        "texture_alignment": "original_image",
+        "model_seed": 20260801,
+        "texture_seed": 1028,
+        "export_uv": true
+      },
+      "task_id": "877e2b95-d3a7-405b-8505-150000c63983",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:15:54.511Z",
+      "model_version": "P2-20260801",
+      "completed_at": "2026-10-28T10:18:29.508401Z",
+      "credits_consumed": 120,
+      "remote_output": {
+        "model_url": "<signed url omitted>",
+        "rendered_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "model": "public/models/figure-04-wanderer.glb",
+        "preview": "public/models/previews/figure-04-wanderer.png",
+        "model_fbx": "public/models/figure-04-wanderer.fbx"
+      }
+    },
+    "model:midnight": {
+      "key": "model:midnight",
+      "endpoint": "/generation/image-to-model",
+      "fingerprint": "d2d436d13794da232247811ae3e5f8910466135ace0f0eb1003b30fbeab92009",
+      "request": {
+        "input": "file_ffd6b8e9-589e-4de0-be35-9f160698a7e7",
+        "model": "P2-20260801",
+        "texture": true,
+        "pbr": true,
+        "quad": true,
+        "face_limit": 20000,
+        "texture_quality": "detailed",
+        "texture_alignment": "original_image",
+        "model_seed": 20260801,
+        "texture_seed": 1028,
+        "export_uv": true
+      },
+      "task_id": "290b07f3-4a31-4d09-a213-300f98b4e2cd",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:16:27.510Z",
+      "model_version": "P2-20260801",
+      "completed_at": "2026-10-28T10:19:02.703651Z",
+      "credits_consumed": 120,
+      "remote_output": {
+        "model_url": "<signed url omitted>",
+        "rendered_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "model": "public/models/figure-05-midnight.glb",
+        "preview": "public/models/previews/figure-05-midnight.png",
+        "model_fbx": "public/models/figure-05-midnight.fbx"
+      }
+    },
+    "game-pose:dreamer": {
+      "key": "game-pose:dreamer",
+      "endpoint": "/generation/image-to-image",
+      "fingerprint": "0ec14c9c5031f6b9909f6d0cabc5f71390b4f5ad1aea2ca7c199cf032151fa07",
+      "request": {
+        "model": "chat_image_2",
+        "input": "file_386b2823-7a1c-4148-a2e7-105755bfaed0",
+        "prompt": "The exact same character as image[1] — identical face, hair, outfit colors, 2.7-heads-tall art-toy proportions and vinyl material — redrawn as a clean 3D-rigging reference: standing straight, facing the camera directly front-on, arms stretched out horizontally to the sides in a T-pose with open empty hands (remove any held props, pins that stick out, bags and suitcases), legs straight and slightly apart, feet flat, no base or stand, full body visible from the top of the hair to the shoes with space around it, plain light-grey studio background, even lighting, no text.",
+        "size": "1024x1536",
+        "quality": "medium",
+        "output_format": "png",
+        "template": "t_pose"
+      },
+      "task_id": "4c8be6bc-d355-4c25-bd0f-24a683e50346",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:18:50.735Z",
+      "model_version": "chat_image_2",
+      "completed_at": "2026-10-28T10:19:38.405067Z",
+      "credits_consumed": 10,
+      "remote_output": {
+        "generated_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "image": "public/concepts/game/01-dreamer-tpose.png"
+      }
+    },
+    "game-pose:rebel": {
+      "key": "game-pose:rebel",
+      "endpoint": "/generation/image-to-image",
+      "fingerprint": "36cf4c22c962ee5a112dc5c3f46990c538e61407c7eb99f4b98fb2ff23c3492b",
+      "request": {
+        "model": "chat_image_2",
+        "input": "file_456a2eef-3b4d-461b-b405-e121fed5dd50",
+        "prompt": "The exact same character as image[1] — identical face, hair, outfit colors, 2.7-heads-tall art-toy proportions and vinyl material — redrawn as a clean 3D-rigging reference: standing straight, facing the camera directly front-on, arms stretched out horizontally to the sides in a T-pose with open empty hands (remove any held props, pins that stick out, bags and suitcases), legs straight and slightly apart, feet flat, no base or stand, full body visible from the top of the hair to the shoes with space around it, plain light-grey studio background, even lighting, no text.",
+        "size": "1024x1536",
+        "quality": "medium",
+        "output_format": "png",
+        "template": "t_pose"
+      },
+      "task_id": "676b8894-4ab0-4b19-a2c6-fb6c690f5a37",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:19:41.335Z",
+      "model_version": "chat_image_2",
+      "completed_at": "2026-10-28T10:23:04.746037Z",
+      "credits_consumed": 10,
+      "remote_output": {
+        "generated_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "image": "public/concepts/game/03-rebel-tpose.png"
+      }
+    },
+    "model:shy": {
+      "key": "model:shy",
+      "endpoint": "/generation/image-to-model",
+      "fingerprint": "9ea41aa7cce687c565ce2a8b1f40211ef7b8523366ca351f3c8241433e32b177",
+      "request": {
+        "input": "file_5ee1ae7a-b29d-412c-aa7a-7eaded768413",
+        "model": "P2-20260801",
+        "texture": true,
+        "pbr": true,
+        "quad": true,
+        "face_limit": 20000,
+        "texture_quality": "detailed",
+        "texture_alignment": "original_image",
+        "model_seed": 20260801,
+        "texture_seed": 1028,
+        "export_uv": true
+      },
+      "task_id": "99aca95f-ae0f-4f0f-a831-891e277881c5",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-28T10:30:48.151Z",
+      "model_version": "P2-20260801",
+      "completed_at": "2026-10-28T10:33:18.903212Z",
+      "credits_consumed": 120,
+      "remote_output": {
+        "model_url": "<signed url omitted>",
+        "rendered_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "model": "public/models/figure-02-shy.glb",
+        "preview": "public/models/previews/figure-02-shy.png",
+        "model_fbx": "public/models/figure-02-shy.fbx"
+      }
+    }
+  }
+}

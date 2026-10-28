@@ -1,0 +1,163 @@
+{
+  "title": "little TAI — The Feelings Collection",
+  "builtAt": "2026-10-28T10:49:33.843Z",
+  "film": {
+    "portrait": "assets/video/little-tai-collection-9x16.mp4",
+    "landscape": "assets/video/little-tai-collection-16x9.mp4",
+    "poster": "assets/img/poster-9x16.jpg",
+    "posterLandscape": "assets/img/poster-16x9.jpg"
+  },
+  "lineup": "assets/img/lineup.jpg",
+  "editions": [
+    {
+      "id": "dreamer",
+      "index": 0,
+      "number": "01",
+      "name": "THE DREAMER",
+      "label": "01 — THE DREAMER",
+      "secret": false,
+      "mood": [
+        "innocent",
+        "dreamy",
+        "nostalgic"
+      ],
+      "feeling": "For the nights you wish on something small and bright.",
+      "rarity": "1 / 4",
+      "palette": {
+        "primary": "#8FBCE7",
+        "secondary": "#ECE6D9",
+        "accent": "#26355A",
+        "glow": "#BFE0FF"
+      },
+      "boxColor": "#A9CBEC",
+      "tagline": "a small wish, held gently",
+      "card": "assets/cards/01-dreamer-card.jpg",
+      "box": "assets/boxes/01-dreamer-box.jpg",
+      "concept": "assets/concepts/01-dreamer-concept.jpg",
+      "clip": "assets/video/reveal-01-dreamer.mp4",
+      "glb": "assets/models/01-dreamer.glb",
+      "fbx": "assets/models/01-dreamer-quad.fbx",
+      "game": null
+    },
+    {
+      "id": "shy",
+      "index": 1,
+      "number": "02",
+      "name": "THE SHY ONE",
+      "label": "02 — THE SHY ONE",
+      "secret": false,
+      "mood": [
+        "tender",
+        "sweet",
+        "quietly emotional"
+      ],
+      "feeling": "For the words you folded up and never sent.",
+      "rarity": "1 / 4",
+      "palette": {
+        "primary": "#D9A5AE",
+        "secondary": "#F4EEE6",
+        "accent": "#7A2739",
+        "glow": "#FFD3DB"
+      },
+      "boxColor": "#D9A5AE",
+      "tagline": "a letter you never sent",
+      "card": "assets/cards/02-shy-card.jpg",
+      "box": "assets/boxes/02-shy-box.jpg",
+      "concept": "assets/concepts/02-shy-concept.jpg",
+      "clip": "assets/video/reveal-02-shy.mp4",
+      "glb": "assets/models/02-shy.glb",
+      "fbx": "assets/models/02-shy-quad.fbx",
+      "game": null
+    },
+    {
+      "id": "rebel",
+      "index": 2,
+      "number": "03",
+      "name": "THE LITTLE REBEL",
+      "label": "03 — THE LITTLE REBEL",
+      "secret": false,
+      "mood": [
+        "playful",
+        "mysterious",
+        "fashionable"
+      ],
+      "feeling": "For the days you'd rather be a little bit trouble.",
+      "rarity": "1 / 4",
+      "palette": {
+        "primary": "#7A2739",
+        "secondary": "#C9CDD6",
+        "accent": "#15161A",
+        "glow": "#E9EEF8"
+      },
+      "boxColor": "#7A2739",
+      "tagline": "a little bit of trouble",
+      "card": "assets/cards/03-rebel-card.jpg",
+      "box": "assets/boxes/03-rebel-box.jpg",
+      "concept": "assets/concepts/03-rebel-concept.jpg",
+      "clip": "assets/video/reveal-03-rebel.mp4",
+      "glb": "assets/models/03-rebel.glb",
+      "fbx": "assets/models/03-rebel-quad.fbx",
+      "game": null
+    },
+    {
+      "id": "wanderer",
+      "index": 3,
+      "number": "04",
+      "name": "THE WANDERER",
+      "label": "04 — THE WANDERER",
+      "secret": false,
+      "mood": [
+        "nostalgic",
+        "adventurous",
+        "poetic"
+      ],
+      "feeling": "For every somewhere you haven't been yet.",
+      "rarity": "1 / 4",
+      "palette": {
+        "primary": "#526047",
+        "secondary": "#ECE6D9",
+        "accent": "#1D2A4A",
+        "glow": "#F6E7C4"
+      },
+      "boxColor": "#5B6B4F",
+      "tagline": "somewhere you haven't been",
+      "card": "assets/cards/04-wanderer-card.jpg",
+      "box": "assets/boxes/04-wanderer-box.jpg",
+      "concept": "assets/concepts/04-wanderer-concept.jpg",
+      "clip": "assets/video/reveal-04-wanderer.mp4",
+      "glb": "assets/models/04-wanderer.glb",
+      "fbx": "assets/models/04-wanderer-quad.fbx",
+      "game": null
+    },
+    {
+      "id": "midnight",
+      "index": 4,
+      "number": "???",
+      "name": "THE MIDNIGHT STAR",
+      "label": "??? — SECRET EDITION",
+      "secret": true,
+      "mood": [
+        "quiet",
+        "mysterious",
+        "elegant"
+      ],
+      "feeling": "For the feeling that only shows up after dark.",
+      "rarity": "SECRET · 1 / 144",
+      "palette": {
+        "primary": "#0B0B10",
+        "secondary": "#C4A66D",
+        "accent": "#8E1B2E",
+        "glow": "#FF3B4E"
+      },
+      "boxColor": "#0C0C11",
+      "tagline": "only after midnight",
+      "card": "assets/cards/05-midnight-card.jpg",
+      "box": "assets/boxes/05-midnight-box.jpg",
+      "concept": "assets/concepts/05-midnight-concept.jpg",
+      "clip": "assets/video/reveal-05-midnight.mp4",
+      "glb": "assets/models/05-midnight.glb",
+      "fbx": "assets/models/05-midnight-quad.fbx",
+      "game": null
+    }
+  ]
+}

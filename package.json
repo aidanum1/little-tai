@@ -1,0 +1,66 @@
+{
+  "name": "little-tai-feelings-collection",
+  "version": "1.0.0",
+  "description": "little TAI — The Feelings Collection. Unofficial fan-made blind-box concept: Tripo 3D generation pipeline + Remotion cinematic promo.",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "preview": "remotion studio",
+    "generate:plan": "tsx scripts/run-pipeline.ts --dry-run",
+    "generate:references": "tsx scripts/generate-references/index.ts",
+    "generate:models": "tsx scripts/generate-models/index.ts",
+    "generate:game": "tsx scripts/generate-game/index.ts",
+    "generate:all": "tsx scripts/run-pipeline.ts",
+    "download:assets": "tsx scripts/download-assets/index.ts",
+    "convert:models": "tsx scripts/convert/fbx-to-glb.ts",
+    "tripo:balance": "tsx scripts/tripo/balance.ts",
+    "qc:models": "tsx scripts/qc/inspect-models.ts",
+    "audio:score": "tsx scripts/audio/generate-score.ts",
+    "audio:sfx": "tsx scripts/audio/generate-sfx.ts",
+    "render": "tsx scripts/render.ts --only=main",
+    "render:all": "tsx scripts/render.ts",
+    "render:landscape": "tsx scripts/render.ts --only=landscape",
+    "render:reveals": "tsx scripts/render.ts --only=reveals",
+    "render:stills": "tsx scripts/render.ts --only=stills",
+    "qc:video": "tsx scripts/qc/verify-renders.ts",
+    "build:site": "tsx scripts/build-site.ts",
+    "serve:site": "npx --yes serve@14.2.4 site -l 4173",
+    "lint": "eslint src && tsc"
+  },
+  "allowScripts": {
+    "esbuild": false
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
+    "@remotion/cli": "4.0.539",
+    "@remotion/google-fonts": "4.0.539",
+    "@remotion/media": "4.0.539",
+    "@remotion/three": "4.0.539",
+    "@remotion/transitions": "4.0.539",
+    "@remotion/zod-types": "4.0.539",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "remotion": "4.0.539",
+    "three": "^0.186.1",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.5.1",
+    "@remotion/eslint-config-flat": "4.0.539",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19.2.7",
+    "@types/three": "^0.186.0",
+    "@types/web": "^0.0.166",
+    "dotenv": "^18.0.9",
+    "eslint": "^10.12.0",
+    "prettier": "^3.8.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

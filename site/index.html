@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>little TAI — The Feelings Collection</title>
+    <meta name="description" content="little TAI — The Feelings Collection. An unofficial fan-made blind-box collectible concept: five 3D designer-toy figures, original packaging and a cinematic launch film." />
+    <meta name="theme-color" content="#0b0d14" />
+    <meta property="og:title" content="little TAI — The Feelings Collection" />
+    <meta property="og:description" content="Some feelings are too small for words. An unofficial fan-made blind-box collectible concept." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/img/lineup.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0d14'/%3E%3Cpath d='M32 10l6.2 13.6 14.8 1.6-11.1 10 3.2 14.6L32 42.4 18.9 49.8l3.2-14.6-11.1-10 14.8-1.6z' fill='%23C4A66D'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Fraunces:ital,opsz,wght@1,9..144,600&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="vendor/model-viewer-4.4.0.min.js"></script>
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <div class="sky" aria-hidden="true"></div>
+
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">A blind-box collectible concept</p>
+        <h1 class="wordmark">little TAI<span class="wordmark-star" aria-hidden="true">✦</span></h1>
+        <p class="collection">THE FEELINGS COLLECTION</p>
+        <p class="lede">Some feelings are too small for words.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#collection">Meet the collection</a>
+          <button class="btn btn-ghost" id="sound-toggle" type="button" aria-pressed="false">Sound on</button>
+        </div>
+        <p class="fineprint">Unofficial fan-made concept · not affiliated with A2O SOUL or its agency</p>
+      </div>
+      <div class="hero-film">
+        <video id="hero-video" muted loop playsinline preload="metadata" aria-label="little TAI — The Feelings Collection launch film"></video>
+      </div>
+    </header>
+
+    <main>
+      <section id="collection" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Four little feelings · one little world</p>
+          <h2>The Collection</h2>
+          <p class="section-sub">Tap a figure to turn it in 3D. One box in every case holds the secret.</p>
+        </div>
+        <div class="grid" id="card-grid"></div>
+      </section>
+
+      <section id="packaging" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Original packaging</p>
+          <h2>Five boxes, five feelings</h2>
+          <p class="section-sub">Embossed board, hot-foil stars and a little arched window. Every edition has its own box.</p>
+        </div>
+        <div class="boxes" id="box-row"></div>
+      </section>
+
+      <section id="reveals" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Product reveals</p>
+          <h2>Unboxing, one by one</h2>
+        </div>
+        <div class="clips" id="clip-row"></div>
+      </section>
+
+      <section id="film" class="section">
+        <div class="section-head">
+          <p class="eyebrow">The launch film</p>
+          <h2>Widescreen cut</h2>
+        </div>
+        <div class="film-wide"><video id="wide-video" controls playsinline preload="none"></video></div>
+        <figure class="lineup" id="lineup"></figure>
+      </section>
+
+      <section id="game" class="section" hidden>
+        <div class="section-head">
+          <p class="eyebrow">Game-ready</p>
+          <h2>Rigged &amp; animated</h2>
+          <p class="section-sub">Auto-rigged on a Mixamo-compatible skeleton with in-place idle, walk, run, jump and fall clips. Download the GLB and drop it into three.js, Godot, Unity (glTFast) or Unreal.</p>
+        </div>
+        <div class="game" id="game-panel"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer-mark">little TAI<span aria-hidden="true">✦</span></p>
+      <p>
+        An unofficial, non-commercial fan-made concept. Not affiliated with, endorsed by or connected to A2O SOUL, its members or its agency.
+        Figures are original stylised designs generated with Tripo; film rendered with Remotion and three.js; music is an original procedural score.
+      </p>
+    </footer>
+
+    <dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
+      <form method="dialog" class="viewer-close-form"><button class="viewer-close" aria-label="Close">×</button></form>
+      <div class="viewer-stage">
+        <model-viewer
+          id="model"
+          camera-controls
+          auto-rotate
+          auto-rotate-delay="1500"
+          rotation-per-second="18deg"
+          touch-action="pan-y"
+          shadow-intensity="1.1"
+          shadow-softness="0.9"
+          exposure="1.05"
+          tone-mapping="aces"
+          environment-image="neutral"
+          camera-orbit="15deg 78deg 105%"
+          field-of-view="28deg"
+          interaction-prompt="none"
+          ar
+          ar-modes="webxr scene-viewer quick-look"
+          loading="eager"
+        >
+          <div class="mv-progress" slot="progress-bar"></div>
+        </model-viewer>
+        <div class="anim-bar" id="anim-bar" hidden></div>
+      </div>
+      <div class="viewer-info">
+        <p class="viewer-number" id="viewer-number"></p>
+        <h3 id="viewer-title"></h3>
+        <p class="viewer-mood" id="viewer-mood"></p>
+        <p class="viewer-feeling" id="viewer-feeling"></p>
+        <p class="viewer-rarity" id="viewer-rarity"></p>
+        <div class="viewer-downloads" id="viewer-downloads"></div>
+      </div>
+    </dialog>
+  </body>
+</html>

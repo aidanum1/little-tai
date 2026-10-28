@@ -1,0 +1,3 @@
+feelings-score.wav — original music synthesized procedurally by scripts/audio/generate-score.ts.
+sfx/*.wav — original sound effects synthesized procedurally by scripts/audio/generate-sfx.ts.
+No samples or third-party recordings are used anywhere. Owned by this project; free to use with it.

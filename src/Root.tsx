@@ -6,6 +6,8 @@ import { Lineup } from "./compositions/Lineup";
 import { FPS, Promo, PROMO_DURATION, SCENES } from "./compositions/Promo";
 import { RevealClip, revealClipSchema } from "./compositions/RevealClip";
 import { Turntable, turntableSchema } from "./compositions/Turntable";
+import { RIG_SAMPLES, RigPreview } from "./lab/RigPreview";
+import { AFTER_HOURS_FRAMES, AfterHours } from "./scenes/AfterHours";
 import { getEdition } from "./characters/figures";
 import { AssetGate } from "./components/AssetGate";
 import { Awakens } from "./scenes/Awakens";
@@ -32,6 +34,8 @@ const CollectionScene = gate(() => <Collection durationInFrames={SCENES[5].frame
 const SecretScene = gate(() => <SecretReveal durationInFrames={SCENES[6].frames} />);
 const FinaleScene = gate(() => <Finale durationInFrames={SCENES[7].frames} />);
 
+const AfterHoursFilm = gate(AfterHours);
+
 const SCENE_COMPONENTS = [AwakensScene, DreamerScene, ShyScene, RebelScene, WandererScene, CollectionScene, SecretScene, FinaleScene];
 
 export const RemotionRoot: React.FC = () => {
@@ -39,6 +43,8 @@ export const RemotionRoot: React.FC = () => {
     <>
       <Composition id="LittleTaiPromo" component={Promo} width={1080} height={1920} fps={FPS} durationInFrames={PROMO_DURATION} defaultProps={{ withMusic: true }} />
       <Composition id="LittleTaiPromoLandscape" component={Promo} width={1920} height={1080} fps={FPS} durationInFrames={PROMO_DURATION} defaultProps={{ withMusic: true }} />
+
+      <Composition id="AfterHours" component={AfterHoursFilm} width={1080} height={1920} fps={FPS} durationInFrames={AFTER_HOURS_FRAMES} />
 
       <Folder name="Scenes">
         {SCENES.map((s, i) => (
@@ -73,6 +79,10 @@ export const RemotionRoot: React.FC = () => {
           fps={FPS}
           durationInFrames={240}
         />
+      </Folder>
+
+      <Folder name="Lab">
+        <Composition id="RigPreview" component={RigPreview} defaultProps={{ yaw: 0 }} width={540} height={720} fps={FPS} durationInFrames={Math.max(1, RIG_SAMPLES.length)} />
       </Folder>
     </>
   );

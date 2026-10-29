@@ -7,7 +7,7 @@ import { log } from "./tripo/log";
 
 /**
  * Assembles the GitHub Pages site in site/ from rendered outputs and generated assets:
- *   - web-optimised H.264 copies of the films and reveal clips (faststart, smaller CRF)
+ *   - web-optimised H.264 copies of the films, the "after hours" short and reveal clips (faststart, smaller CRF)
  *   - JPEG copies of the cards, box shots and lineup
  *   - display GLBs (+ quad FBX masters) and, when present, rigged/animated game GLBs
  *   - site/data.json describing exactly what exists (the page renders only what is listed)
@@ -58,6 +58,10 @@ const film = {
   poster: poster(fromRoot("out/little-tai-collection.mp4"), A("img", "poster-9x16.jpg"), "00:00:30.5"),
   posterLandscape: poster(fromRoot("out/little-tai-collection-16x9.mp4"), A("img", "poster-16x9.jpg"), "00:00:34"),
 };
+const short = {
+  video: webVideo(fromRoot("out/little-tai-after-hours.mp4"), A("video", "little-tai-after-hours-9x16.mp4")),
+  poster: poster(fromRoot("out/little-tai-after-hours.mp4"), A("img", "poster-after-hours.jpg"), "00:00:10"),
+};
 const lineup = jpeg(fromRoot("out/little-tai-lineup.png"), A("img", "lineup.jpg"), 2560);
 
 const editions = EDITIONS.map((e) => {
@@ -91,14 +95,15 @@ const editions = EDITIONS.map((e) => {
     game: animatedSrc || riggedSrc
       ? {
           animated: copy(animatedSrc, A("models", "game", `${nn}-${e.id}-animated.glb`)),
-          rigged: copy(riggedSrc, A("models", "game", `${nn}-${e.id}-rigged.glb`)),
+          // the animated GLB carries the same rig (turned to face +Z); the bare rig is only offered on its own
+          rigged: animatedSrc ? null : copy(riggedSrc, A("models", "game", `${nn}-${e.id}-rigged.glb`)),
           animations: game?.animated?.animations?.map((a) => a.name) ?? [],
         }
       : null,
   };
 });
 
-const data = { title: "little TAI — The Feelings Collection", builtAt: new Date().toISOString(), film, lineup, editions };
+const data = { title: "little TAI — The Feelings Collection", builtAt: new Date().toISOString(), film, short: short.video ? short : null, lineup, editions };
 writeFileSync(path.join(SITE, "data.json"), JSON.stringify(data, null, 2) + "\n");
 writeFileSync(path.join(SITE, ".nojekyll"), "");
 

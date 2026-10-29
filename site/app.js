@@ -14,6 +14,9 @@ const el = (tag, attrs = {}, ...children) => {
   return node;
 };
 
+/** "greet_01" → "greet", "heart_pose" → "heart pose" */
+const clipLabel = (name) => name.replace(/^.*[|:]/, "").replace(/_0\d$/, "").replace(/_/g, " ");
+
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const data = await fetch("data.json", { cache: "no-cache" }).then((r) => r.json());
@@ -40,6 +43,14 @@ soundBtn.addEventListener("click", () => {
   soundBtn.setAttribute("aria-pressed", String(on));
   soundBtn.textContent = on ? "Sound off" : "Sound on";
 });
+
+// ---- "after hours" short --------------------------------------------------------------------------
+if (data.short?.video) {
+  const v = $("#short-video");
+  v.src = data.short.video;
+  if (data.short.poster) v.poster = data.short.poster;
+  $("#short").hidden = false;
+}
 
 // ---- collection grid ----------------------------------------------------------------------------
 const grid = $("#card-grid");
@@ -125,7 +136,7 @@ if (gameEditions.length) {
         "div",
         { class: "game-item" },
         el("h3", {}, e.name),
-        el("p", { class: "section-sub" }, e.game.animations.length ? `Clips: ${e.game.animations.join(", ")}` : "Rigged skeleton"),
+        el("p", { class: "section-sub" }, e.game.animations.length ? `Clips: ${e.game.animations.map(clipLabel).join(", ")}` : "Rigged skeleton"),
         el(
           "div",
           { class: "viewer-downloads" },
@@ -148,7 +159,8 @@ function openViewer(e, game = false) {
   if (!src) return;
   mv.src = src;
   mv.alt = `${e.name} — 3D collectible figure`;
-  mv.setAttribute("camera-orbit", "15deg 78deg 105%");
+  // clips such as the dance travel: frame wider than the turntable view
+  mv.setAttribute("camera-orbit", game ? "15deg 78deg 150%" : "15deg 78deg 105%");
   mv.autoRotate = !game;
   $("#viewer-number").textContent = e.secret ? "SECRET EDITION" : `No. ${e.number}`;
   $("#viewer-title").textContent = e.name;
@@ -157,9 +169,12 @@ function openViewer(e, game = false) {
   $("#viewer-rarity").textContent = e.rarity;
   const dl = $("#viewer-downloads");
   dl.replaceChildren(
-    e.glb ? el("a", { class: "btn btn-gold", href: e.glb, download: "" }, "Download GLB") : null,
-    e.fbx ? el("a", { class: "btn btn-ghost", href: e.fbx, download: "" }, "Quad FBX") : null,
-    el("button", { class: "btn btn-ghost", type: "button", onclick: () => mv.activateAR?.() }, "View in AR"),
+    ...[
+      game && e.game?.animated ? el("a", { class: "btn btn-gold", href: e.game.animated, download: "" }, "Animated GLB") : null,
+      !game && e.glb ? el("a", { class: "btn btn-gold", href: e.glb, download: "" }, "Download GLB") : null,
+      !game && e.fbx ? el("a", { class: "btn btn-ghost", href: e.fbx, download: "" }, "Quad FBX") : null,
+      el("button", { class: "btn btn-ghost", type: "button", onclick: () => mv.activateAR?.() }, "View in AR"),
+    ].filter(Boolean),
   );
   animBar.replaceChildren();
   animBar.hidden = true;
@@ -167,6 +182,7 @@ function openViewer(e, game = false) {
     mv.addEventListener(
       "load",
       () => {
+        mv.jumpCameraToGoal?.();
         const names = mv.availableAnimations ?? [];
         if (!names.length) return;
         animBar.hidden = false;
@@ -175,8 +191,8 @@ function openViewer(e, game = false) {
           mv.play({ repetitions: Infinity });
           animBar.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.name === name)));
         };
-        for (const name of names) animBar.append(el("button", { type: "button", "data-name": name, onclick: () => pick(name) }, name.replace(/^.*[|:]/, "")));
-        pick(names[0]);
+        for (const name of names) animBar.append(el("button", { type: "button", "data-name": name, onclick: () => pick(name) }, clipLabel(name)));
+        pick(names.includes("idle") ? "idle" : names[0]);
       },
       { once: true },
     );

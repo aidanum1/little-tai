@@ -13,7 +13,7 @@ import { loadManifest, saveManifest, sha256, sha256File, type Manifest, type Tas
  *
  *   references  photos → master-base (art-toy proportions) → master (likeness) → 5 edition concepts
  *   models      edition concept → textured PBR display figure (quad topology)
- *   game        edition concept → T-pose → game mesh → rig-check (free) → Mixamo-spec rig → animation clips
+ *   game        edition concept → T-pose → game mesh → rig-check (free) → Mixamo-spec rig → animation clip batches
  *
  * Every step is cached in generation/manifest.json and resumable: a task_id is persisted before polling.
  */
@@ -62,10 +62,27 @@ const GAME_MODEL_CREDITS = GAME_MODEL_VERSION.startsWith("P") ? 110 : 30 + TEXTU
 const RIG_CREDITS = 25;
 const RETARGET_CREDITS_EACH = 10;
 
-export const GAME_ANIMATIONS = ["preset:idle", "preset:walk", "preset:run", "preset:jump", "preset:fall"];
+// Rig v1.0 is the only rig with Tripo's expressive biped library (greet, dance, heart pose…); v2.5/v3.0 offer 11 generic
+// presets. These eight clips drive the "after hours" short film and double as the game set.
+export const GAME_ANIMATIONS = [
+  "preset:biped:idle",
+  "preset:biped:look_around",
+  "preset:biped:walk",
+  "preset:biped:greet_01",
+  "preset:biped:heart_pose",
+  "preset:biped:dance_01",
+  "preset:biped:run",
+  "preset:biped:jump",
+];
+/** The retarget endpoint accepts at most 5 animations per request. */
+const RETARGET_BATCH = 5;
+export const animationBatches = () =>
+  Array.from({ length: Math.ceil(GAME_ANIMATIONS.length / RETARGET_BATCH) }, (_, i) => GAME_ANIMATIONS.slice(i * RETARGET_BATCH, (i + 1) * RETARGET_BATCH));
+/** Step key of each retarget batch: game-anim:<id>, game-anim-2:<id>, … */
+export const animStepKey = (id: EditionId, batch: number) => (batch === 0 ? `game-anim:${id}` : `game-anim-${batch + 1}:${id}`);
 
 const MODEL_FALLBACKS = [config.modelVersion, "P1-20260311", "v3.1-20260211"].filter((v, i, a) => a.indexOf(v) === i);
-const RIG_MODEL = "v3.0-20260909";
+const RIG_MODEL = "v1.0-20240301";
 
 const photo = (name: string) => path.join(paths.photos, name);
 const pad = (e: { index: number }) => String(e.index + 1).padStart(2, "0");
@@ -244,28 +261,29 @@ export const buildSteps = (manifest: Manifest, strategy: Strategy): StepDef[] =>
           spec: "mixamo",
           out_format: config.gameFormat,
         }),
-        variants: [RIG_MODEL, "v1.0-20240301"],
+        // no fallback: the biped presets only exist on rig v1.0
+        variants: [RIG_MODEL],
         outputs: { model: gameFileBase(e.id, "rigged") },
         estimatedCredits: RIG_CREDITS,
       },
-      {
-        key: k("anim"),
-        stage: "game",
+      ...animationBatches().map((clips, b) => ({
+        key: animStepKey(e.id, b),
+        stage: "game" as const,
         endpoint: "/animations/retarget",
-        title: `Animation clips (${GAME_ANIMATIONS.map((a) => a.replace("preset:", "")).join(", ")}) — ${e.name}`,
+        title: `Animation clips (${clips.map((a) => a.replace(/^preset:(biped:)?/, "")).join(", ")}) — ${e.name}`,
         deps: [k("rig")],
         inputTasks: [k("rig")],
-        buildBody: (inputs) => ({
+        buildBody: (inputs: string[]) => ({
           input: inputs[0],
-          animations: GAME_ANIMATIONS,
+          animations: clips,
           out_format: config.gameFormat,
           export_with_geometry: true,
           animate_in_place: true,
         }),
         variants: [""],
-        outputs: { model: gameFileBase(e.id, "animated") },
-        estimatedCredits: RETARGET_CREDITS_EACH * GAME_ANIMATIONS.length,
-      },
+        outputs: { model: gameFileBase(e.id, `clips-${b + 1}`) },
+        estimatedCredits: RETARGET_CREDITS_EACH * clips.length,
+      })),
     );
   }
   return steps;

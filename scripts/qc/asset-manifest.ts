@@ -4,6 +4,7 @@ import { EDITIONS, type EditionId } from "../../src/characters/figures";
 import { fromRepo, paths, toPublic, toRepo } from "../tripo/env";
 import { c, log, table } from "../tripo/log";
 import { loadManifest } from "../tripo/manifest";
+import { gameFileBase } from "../tripo/pipeline";
 import { inspectGlb } from "./glb";
 
 /**
@@ -60,7 +61,9 @@ export const writeAssetManifest = async () => {
   const gameRows: string[][] = [];
   for (const e of EDITIONS) {
     const rigged = local(`game-rig:${e.id}`, "model");
-    const animated = local(`game-anim:${e.id}`, "model");
+    // all retarget batches merged into one GLB (scripts/convert/merge-clips.ts); else the first batch alone
+    const mergedFile = `${gameFileBase(e.id, "animated")}.glb`;
+    const animated = existsSync(mergedFile) ? mergedFile : local(`game-anim:${e.id}`, "model");
     if (!rigged && !animated) {
       game[e.id] = null;
       continue;

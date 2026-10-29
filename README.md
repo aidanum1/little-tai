@@ -17,9 +17,11 @@ with **Remotion + React Three Fiber**. A static showcase site in `site/` is read
 | 5 animated 3D blind boxes (real geometry, painted foil/emboss print) | `src/packaging/` |
 | 36 s film, 1080×1920, 30 fps | `out/little-tai-collection.mp4` |
 | 16:9 cut, 1920×1080 | `out/little-tai-collection-16x9.mp4` |
+| **"after hours"** — 28 s animated short with the rigged Little Rebel, 1080×1920 | `out/little-tai-after-hours.mp4` |
+| Rigged + animated Little Rebel (Mixamo skeleton, 8 clips, faces +Z) | `public/models/game/03-rebel-animated.glb` |
 | 7 s reveal clip per edition | `out/reveals/` |
 | 5 collectible cards · 5 box key-art stills · lineup | `out/cards/`, `out/boxes/`, `out/little-tai-lineup.png` |
-| Original score + 16 sound effects (synthesised from scratch, project-owned) | `public/audio/feelings-score.wav`, `public/audio/sfx/` |
+| Original scores + 21 sound effects (synthesised from scratch, project-owned) | `public/audio/*.wav`, `public/audio/sfx/` |
 | GitHub Pages showcase | `site/` + `.github/workflows/pages.yml` |
 
 ## Setup
@@ -43,10 +45,11 @@ Reference photos go in `public/photos/tai_01.jpg … tai_09.jpg`. They are git-i
 | `npm run tripo:balance` | Credit balance |
 | `npm run convert:models` | FBX (Tripo quad output) → GLB via local Blender, turned to face +Z |
 | `npm run qc:models` | Parses every GLB (meshes, bounds, textures, skins, clips) and refreshes `src/characters/asset-manifest.json` |
-| `npm run audio:score` / `npm run audio:sfx` | Re-synthesise the music / sound effects (deterministic, no samples) |
+| `npm run audio:score` / `npm run audio:short` / `npm run audio:sfx` | Re-synthesise the film score / the short's score / sound effects (deterministic, no samples) |
 | `npm run dev` | Remotion Studio preview (all compositions, plus a 3D `Turntable` viewer) |
 | `npm run render` | Final film → `out/little-tai-collection.mp4` |
-| `npm run render:all` | Film, 16:9 cut, reveal clips, cards, boxes, lineup |
+| `npm run render:short` | "after hours" short → `out/little-tai-after-hours.mp4` |
+| `npm run render:all` | Film, 16:9 cut, short, reveal clips, cards, boxes, lineup |
 | `npm run qc:video` | ffprobe check: resolution, fps, duration, codecs, audio |
 | `npm run build:site` | Builds `site/` (web-optimised videos, images, models, `data.json`) |
 | `npm run serve:site` | Local preview of the site at http://localhost:4173 |
@@ -77,13 +80,26 @@ derived from that one master (image[1]) plus edition-specific photo references, 
 consistent. Figure-only props (stars, hearts, suitcase) are part of each generated mesh. Bases, boxes and the Midnight
 Star's orrery are procedural.
 
-## Game-ready rigging (deferred)
+## Rigging and the "after hours" short
 
-`npm run generate:game` creates, per edition: a T-pose sheet (`template: t_pose`), a triangle game mesh (H-series
-v3.1), a free rig-check, a Mixamo-compatible rig (rig v3.0), and one GLB with in-place idle/walk/run/jump/fall
-clips. That's about 125 credits per edition. Run `npm run generate:plan` first to see the exact plan. Set
-`TRIPO_GAME_FORMAT=fbx` for Unity/Unreal-native FBX. Two T-pose sheets (Dreamer, Rebel) are already generated and
-cached. When rigged GLBs exist, `npm run build:site` adds a playable "Game-ready" section with clip buttons and downloads.
+`npm run generate:game -- --only=rebel` rigged one figure, the Little Rebel (145 credits): T-pose sheet
+(`template: t_pose`, cached) → triangle game mesh (H-series v3.1, 40) → free rig-check → Mixamo-named biped rig
+(**rig v1.0**, 25) → eight in-place clips in two retarget batches (10 each): idle, look_around, walk, greet_01,
+heart_pose, dance_01, run, jump. Rig v1.0 is used because only it offers Tripo's expressive biped library (90+ presets);
+v2.5/v3.0 have 11 generic ones. Add a clip by appending to `GAME_ANIMATIONS` in `scripts/tripo/pipeline.ts`; the rig
+is reused, only the new batch is paid.
+
+After generation, free local steps run automatically:
+- `scripts/convert/merge-clips.ts` merges the batches into one GLB and turns it to face +Z (Tripo rigs face +X).
+- `scripts/qc/clip-tracks.ts` samples where each clip carries the hips (`src/characters/clip-tracks.json`), so the film
+  can keep "in place" clips that still offset the body (run: half a figure forward) on their marks, and the camera can
+  follow the dance.
+
+The short (`src/scenes/AfterHours.tsx`, composition `AfterHours`) drives the rig purely from the frame: a take list
+says which clip plays from which frame (cross-faded), blocking keys say where he stands and faces, and
+`RiggedFigure` evaluates the mixer at exact clip times, so every frame renders the same on any worker. The other
+editions in the scene are the display figures. Score: `scripts/audio/generate-after-hours.ts` (tape-stop when the
+lights snap on). Dev-only contact sheet of every clip: composition `RigPreview` in Studio.
 
 ## Publishing on GitHub Pages
 

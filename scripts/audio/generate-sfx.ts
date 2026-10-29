@@ -179,6 +179,54 @@ const sfx: Record<string, () => { s: Stereo; wet?: number; fb?: number }> = {
     }
     return { s, wet: 0.65, fb: 0.87 };
   },
+  // ---- "after hours" short ----
+  "clock-tick": () => {
+    const s = new Stereo(0.6);
+    click(s, 0, 0.8, 141);
+    ping(s, 0, 2100, 0.12, 0.2, 60); // tiny wooden resonance
+    return { s, wet: 0.45 };
+  },
+  tiptoe: () => {
+    const s = new Stereo(0.4);
+    noise(s, 0, 0.05, (x) => Math.pow(1 - x, 2) * Math.min(1, x * 40), () => 1100, 2.2, 0.5, 151);
+    drop(s, 0.002, 260, 140, 0.08, 0.35, 40);
+    return { s, wet: 0.2 };
+  },
+  "switch-click": () => {
+    const s = new Stereo(0.8);
+    click(s, 0, 0.9, 161);
+    drop(s, 0, 900, 420, 0.05, 0.4, 60);
+    click(s, 0.032, 0.7, 163);
+    drop(s, 0.032, 700, 300, 0.06, 0.3, 50);
+    return { s, wet: 0.35 };
+  },
+  "light-buzz": () => {
+    // fluorescent tubes striking: gated 100 Hz buzz + tinks, matching the on-screen flicker (on at 0.03 s, 0.2 s, 0.4 s)
+    const s = new Stereo(1.8);
+    const gate = (t: number) => (t >= 0.03 && t < 0.1 ? 1 : t >= 0.2 && t < 0.27 ? 1 : t >= 0.3 && t < 0.37 ? 0.35 : t >= 0.4 ? Math.exp(-(t - 0.4) * 2.2) : 0);
+    const start = 0;
+    for (let k = 0; k < 1.8 * SR; k++) {
+      const t = k / SR;
+      const g = gate(t);
+      if (!g) continue;
+      let v = 0;
+      for (let h = 1; h <= 9; h += 2) v += Math.sin(2 * Math.PI * 100 * h * t) / h;
+      s.add(start + k, v * g * 0.18);
+    }
+    [0.03, 0.2, 0.4].forEach((t, i) => ping(s, t, 3600 + i * 400, 0.12, (i - 1) * 0.5, 30));
+    return { s, wet: 0.4 };
+  },
+  boing: () => {
+    const s = new Stereo(0.9);
+    let ph = 0;
+    for (let k = 0; k < 0.7 * SR; k++) {
+      const t = k / SR;
+      const f = 180 + 260 * (1 - Math.exp(-t * 9)) + 70 * Math.sin(2 * Math.PI * 16 * t) * Math.exp(-t * 5);
+      ph += (2 * Math.PI * f) / SR;
+      s.add(k, Math.sin(ph) * Math.exp(-t * 6) * Math.min(1, t * 800) * 0.6);
+    }
+    return { s, wet: 0.25 };
+  },
 };
 
 for (const [name, make] of Object.entries(sfx)) {

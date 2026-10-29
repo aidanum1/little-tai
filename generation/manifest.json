@@ -90,6 +90,12 @@
       "sha256": "fc44a7baee5fc4717225a18dd622e177c4bb627c9f30e865d67bdec62cc733d3",
       "file_token": "file_5ee1ae7a-b29d-412c-aa7a-7eaded768413",
       "uploaded_at": "2026-10-28T10:30:46.545Z"
+    },
+    "4d0585ba59d13fc6024b05a92f93f8a7ccaab7e87a64cc3d365c2c5affd42bac": {
+      "file": "public/concepts/game/03-rebel-tpose.png",
+      "sha256": "4d0585ba59d13fc6024b05a92f93f8a7ccaab7e87a64cc3d365c2c5affd42bac",
+      "file_token": "file_65837523-09a6-4d7d-a11f-76b4b60dff99",
+      "uploaded_at": "2026-10-29T12:14:35.492Z"
     }
   },
   "tasks": {
@@ -549,6 +555,141 @@
         "model": "public/models/figure-02-shy.glb",
         "preview": "public/models/previews/figure-02-shy.png",
         "model_fbx": "public/models/figure-02-shy.fbx"
+      }
+    },
+    "game-model:rebel": {
+      "key": "game-model:rebel",
+      "endpoint": "/generation/image-to-model",
+      "fingerprint": "26bdb3d33b308b2df5ab49c4e3d07a3a65c91b006f1b8945fec72e0d4969ee3a",
+      "request": {
+        "input": "file_65837523-09a6-4d7d-a11f-76b4b60dff99",
+        "model": "v3.1-20260211",
+        "texture": true,
+        "pbr": true,
+        "face_limit": 30000,
+        "texture_quality": "detailed",
+        "texture_alignment": "original_image",
+        "model_seed": 20260801,
+        "texture_seed": 1028,
+        "export_uv": true
+      },
+      "task_id": "e7e6a22f-fa96-4bf3-aee4-0fde6cf75d75",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-29T12:14:37.353Z",
+      "model_version": "v3.1-20260211",
+      "completed_at": "2026-10-29T12:16:36.893012Z",
+      "credits_consumed": 40,
+      "remote_output": {
+        "model_url": "<signed url omitted>",
+        "rendered_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "model": "public/models/game/03-rebel-base.glb",
+        "preview": "public/models/game/03-rebel-base-preview.png"
+      }
+    },
+    "game-rigcheck:rebel": {
+      "key": "game-rigcheck:rebel",
+      "endpoint": "/animations/rig-check",
+      "fingerprint": "1b6ec4d7b312eec54087fc8bc1e709c7af7183b7d0f25caba43e3d54d891a605",
+      "request": {
+        "input": "e7e6a22f-fa96-4bf3-aee4-0fde6cf75d75"
+      },
+      "task_id": "42bffc5c-b4ef-4277-a1da-4501ac464350",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-29T12:16:49.021Z",
+      "completed_at": "2026-10-29T12:16:49.757882Z",
+      "credits_consumed": 0,
+      "remote_output": {
+        "riggable": true,
+        "rig_type": "biped"
+      },
+      "outputs": {}
+    },
+    "game-rig:rebel": {
+      "key": "game-rig:rebel",
+      "endpoint": "/animations/rig",
+      "fingerprint": "ebe9e8a73aa48931bd96e668ca113f61766c978831102c66f54d56dd7ca08f80",
+      "request": {
+        "input": "e7e6a22f-fa96-4bf3-aee4-0fde6cf75d75",
+        "model": "v1.0-20240301",
+        "rig_type": "biped",
+        "spec": "mixamo",
+        "out_format": "glb"
+      },
+      "task_id": "ac0ce414-079e-4aa7-bb2e-44e6a16d7ba1",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-29T12:16:53.236Z",
+      "model_version": "v1.0-20240301",
+      "completed_at": "2026-10-29T12:17:00.022225Z",
+      "credits_consumed": 25,
+      "remote_output": {
+        "model_url": "<signed url omitted>",
+        "rendered_image_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "model": "public/models/game/03-rebel-rigged.glb"
+      }
+    },
+    "game-anim:rebel": {
+      "key": "game-anim:rebel",
+      "endpoint": "/animations/retarget",
+      "fingerprint": "7c25e764d6f15aafc8ea0b763f79b4ef3a4230ef38bd3d017bc7d9e74adb63f3",
+      "request": {
+        "input": "ac0ce414-079e-4aa7-bb2e-44e6a16d7ba1",
+        "animations": [
+          "preset:biped:idle",
+          "preset:biped:look_around",
+          "preset:biped:walk",
+          "preset:biped:greet_01",
+          "preset:biped:heart_pose"
+        ],
+        "out_format": "glb",
+        "export_with_geometry": true,
+        "animate_in_place": true
+      },
+      "task_id": "a239cbb2-1ce0-4a8b-8605-70f4a0842b18",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-29T12:17:04.353Z",
+      "completed_at": "2026-10-29T12:17:13.449192Z",
+      "credits_consumed": 50,
+      "remote_output": {
+        "model_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "model": "public/models/game/03-rebel-clips-1.glb"
+      }
+    },
+    "game-anim-2:rebel": {
+      "key": "game-anim-2:rebel",
+      "endpoint": "/animations/retarget",
+      "fingerprint": "535fb3a7b754b1e90e28a10aa2914ffa3f4d7e1aabc57534e285c50dcb0d57a2",
+      "request": {
+        "input": "ac0ce414-079e-4aa7-bb2e-44e6a16d7ba1",
+        "animations": [
+          "preset:biped:dance_01",
+          "preset:biped:run",
+          "preset:biped:jump"
+        ],
+        "out_format": "glb",
+        "export_with_geometry": true,
+        "animate_in_place": true
+      },
+      "task_id": "61dac7c8-1d89-431e-901e-78f09c6ed2f7",
+      "status": "success",
+      "progress": 100,
+      "created_at": "2026-10-29T12:17:05.537Z",
+      "completed_at": "2026-10-29T12:17:11.866444Z",
+      "credits_consumed": 30,
+      "remote_output": {
+        "model_url": "<signed url omitted>"
+      },
+      "outputs": {
+        "model": "public/models/game/03-rebel-clips-2.glb"
       }
     }
   }

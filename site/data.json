@@ -1,11 +1,15 @@
 {
   "title": "little TAI — The Feelings Collection",
-  "builtAt": "2026-10-28T10:49:33.843Z",
+  "builtAt": "2026-10-29T12:33:30.518Z",
   "film": {
     "portrait": "assets/video/little-tai-collection-9x16.mp4",
     "landscape": "assets/video/little-tai-collection-16x9.mp4",
     "poster": "assets/img/poster-9x16.jpg",
     "posterLandscape": "assets/img/poster-16x9.jpg"
+  },
+  "short": {
+    "video": "assets/video/little-tai-after-hours-9x16.mp4",
+    "poster": "assets/img/poster-after-hours.jpg"
   },
   "lineup": "assets/img/lineup.jpg",
   "editions": [
@@ -97,7 +101,20 @@
       "clip": "assets/video/reveal-03-rebel.mp4",
       "glb": "assets/models/03-rebel.glb",
       "fbx": "assets/models/03-rebel-quad.fbx",
-      "game": null
+      "game": {
+        "animated": "assets/models/game/03-rebel-animated.glb",
+        "rigged": null,
+        "animations": [
+          "greet_01",
+          "heart_pose",
+          "idle",
+          "look_around",
+          "walk",
+          "dance_01",
+          "jump",
+          "run"
+        ]
+      }
     },
     {
       "id": "wanderer",

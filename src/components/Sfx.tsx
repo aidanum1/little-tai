@@ -19,7 +19,12 @@ export type SfxName =
   | "box-land"
   | "lid-lift-luxe"
   | "star-ignite"
-  | "finale-chimes";
+  | "finale-chimes"
+  | "clock-tick"
+  | "tiptoe"
+  | "switch-click"
+  | "light-buzz"
+  | "boing";
 
 /** A sound effect cued at a scene-local frame (render it in the HTML overlay, not inside the 3D canvas). */
 export const Sfx: React.FC<{ name: SfxName; at: number; volume?: number }> = ({ name, at, volume = 0.8 }) => (

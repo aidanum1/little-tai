@@ -16,6 +16,7 @@ const probe = (file: string) =>
 const expect = [
   { file: "out/little-tai-collection.mp4", w: 1080, h: 1920, dur: 36 },
   { file: "out/little-tai-collection-16x9.mp4", w: 1920, h: 1080, dur: 36 },
+  { file: "out/little-tai-after-hours.mp4", w: 1080, h: 1920, dur: 28 },
   ...(existsSync(path.join(ROOT, "out/reveals")) ? readdirSync(path.join(ROOT, "out/reveals")).filter((f) => f.endsWith(".mp4")).map((f) => ({ file: `out/reveals/${f}`, w: 1080, h: 1920, dur: 7 })) : []),
 ];
 

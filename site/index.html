@@ -20,6 +20,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="vendor/model-viewer-4.4.0.min.js"></script>
+    <script defer src="vendor/qrcode-generator-1.4.4.js"></script>
     <script type="module" src="app.js"></script>
   </head>
   <body>
@@ -128,7 +129,7 @@
           field-of-view="28deg"
           interaction-prompt="none"
           ar
-          ar-modes="webxr scene-viewer quick-look"
+          ar-modes="scene-viewer webxr quick-look"
           loading="eager"
         >
           <div class="mv-progress" slot="progress-bar"></div>
@@ -142,6 +143,7 @@
         <p class="viewer-feeling" id="viewer-feeling"></p>
         <p class="viewer-rarity" id="viewer-rarity"></p>
         <div class="viewer-downloads" id="viewer-downloads"></div>
+        <div class="viewer-ar" id="viewer-ar"></div>
       </div>
     </dialog>
   </body>

@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { EDITIONS } from "../src/characters/figures";
+import { buildArAssets } from "./convert/ar-assets";
 import { ROOT } from "./tripo/env";
 import { log } from "./tripo/log";
 
@@ -10,6 +11,7 @@ import { log } from "./tripo/log";
  *   - web-optimised H.264 copies of the films, the "after hours" short and reveal clips (faststart, smaller CRF)
  *   - JPEG copies of the cards, box shots and lineup
  *   - display GLBs (+ quad FBX masters) and, when present, rigged/animated game GLBs
+ *   - light GLB + USDZ copies for the viewer and AR (scripts/convert/ar-assets.ts)
  *   - site/data.json describing exactly what exists (the page renders only what is listed)
  * The reference photographs are never copied to the site.
  */
@@ -19,7 +21,7 @@ const A = (...p: string[]) => path.join(SITE, "assets", ...p);
 const rel = (abs: string) => path.relative(SITE, abs).split(path.sep).join("/");
 const fromRoot = (p: string) => path.join(ROOT, p);
 const manifest = JSON.parse(readFileSync(fromRoot("src/characters/asset-manifest.json"), "utf8"));
-for (const d of ["video", "img", "cards", "boxes", "models", "models/game", "concepts"]) mkdirSync(A(d), { recursive: true });
+for (const d of ["video", "img", "cards", "boxes", "models", "models/game", "models/ar", "concepts"]) mkdirSync(A(d), { recursive: true });
 
 const fresh = (src: string, dst: string) => existsSync(dst) && statSync(dst).mtimeMs >= statSync(src).mtimeMs;
 
@@ -64,6 +66,10 @@ const short = {
 };
 const lineup = jpeg(fromRoot("out/little-tai-lineup.png"), A("img", "lineup.jpg"), 2560);
 
+// light GLB (viewer, Android AR) + USDZ (iOS Quick Look) per figure — rebuilt with Blender when their source changes
+const ar = await buildArAssets();
+const arFile = (key: string, kind: "glb" | "usdz", name: string) => (ar[key] ? copy(fromRoot(ar[key][kind]), A("models", "ar", name)) : null);
+
 const editions = EDITIONS.map((e) => {
   const nn = String(e.index + 1).padStart(2, "0");
   const fig = manifest.figures?.[e.id] as { glb: string } | null;
@@ -91,10 +97,14 @@ const editions = EDITIONS.map((e) => {
     concept: conceptRel ? jpeg(fromRoot(path.join("public", conceptRel)), A("concepts", `${nn}-${e.id}-concept.jpg`), 900) : null,
     clip: webVideo(fromRoot(`out/reveals/${nn}-${e.id}.mp4`), A("video", `reveal-${nn}-${e.id}.mp4`), 25),
     glb: copy(glbSrc, A("models", `${nn}-${e.id}.glb`)),
+    view: arFile(`figure:${e.id}`, "glb", `${nn}-${e.id}.glb`),
+    usdz: arFile(`figure:${e.id}`, "usdz", `${nn}-${e.id}.usdz`),
     fbx: copy(fbxSrc, A("models", `${nn}-${e.id}-quad.fbx`)),
     game: animatedSrc || riggedSrc
       ? {
           animated: copy(animatedSrc, A("models", "game", `${nn}-${e.id}-animated.glb`)),
+          view: arFile(`animated:${e.id}`, "glb", `${nn}-${e.id}-animated.glb`),
+          usdz: arFile(`animated:${e.id}`, "usdz", `${nn}-${e.id}-animated.usdz`),
           // the animated GLB carries the same rig (turned to face +Z); the bare rig is only offered on its own
           rigged: animatedSrc ? null : copy(riggedSrc, A("models", "game", `${nn}-${e.id}-rigged.glb`)),
           animations: game?.animated?.animations?.map((a) => a.name) ?? [],

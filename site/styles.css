@@ -521,7 +521,8 @@ h2 {
 .anim-bar {
   position: absolute;
   left: 16px;
-  right: 16px;
+  /* leave room for model-viewer's own AR button (bottom right, shown on AR-capable phones) */
+  right: 72px;
   bottom: 16px;
   display: flex;
   flex-wrap: wrap;
@@ -595,6 +596,44 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.viewer-ar {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ar-qr {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--ink-2);
+  box-shadow: 0 0 0 1px var(--hair);
+}
+
+.ar-qr[hidden] {
+  display: none;
+}
+
+.ar-qr svg {
+  width: 132px;
+  height: 132px;
+  flex: none;
+  border-radius: 8px;
+}
+
+.ar-qr p,
+.ar-note {
+  margin: 0;
+  max-width: 30ch;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
 }
 
 .viewer-close-form {

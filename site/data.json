@@ -1,6 +1,6 @@
 {
   "title": "little TAI — The Feelings Collection",
-  "builtAt": "2026-10-29T12:33:30.518Z",
+  "builtAt": "2026-10-29T13:18:32.576Z",
   "film": {
     "portrait": "assets/video/little-tai-collection-9x16.mp4",
     "landscape": "assets/video/little-tai-collection-16x9.mp4",
@@ -40,6 +40,8 @@
       "concept": "assets/concepts/01-dreamer-concept.jpg",
       "clip": "assets/video/reveal-01-dreamer.mp4",
       "glb": "assets/models/01-dreamer.glb",
+      "view": "assets/models/ar/01-dreamer.glb",
+      "usdz": "assets/models/ar/01-dreamer.usdz",
       "fbx": "assets/models/01-dreamer-quad.fbx",
       "game": null
     },
@@ -70,6 +72,8 @@
       "concept": "assets/concepts/02-shy-concept.jpg",
       "clip": "assets/video/reveal-02-shy.mp4",
       "glb": "assets/models/02-shy.glb",
+      "view": "assets/models/ar/02-shy.glb",
+      "usdz": "assets/models/ar/02-shy.usdz",
       "fbx": "assets/models/02-shy-quad.fbx",
       "game": null
     },
@@ -100,9 +104,13 @@
       "concept": "assets/concepts/03-rebel-concept.jpg",
       "clip": "assets/video/reveal-03-rebel.mp4",
       "glb": "assets/models/03-rebel.glb",
+      "view": "assets/models/ar/03-rebel.glb",
+      "usdz": "assets/models/ar/03-rebel.usdz",
       "fbx": "assets/models/03-rebel-quad.fbx",
       "game": {
         "animated": "assets/models/game/03-rebel-animated.glb",
+        "view": "assets/models/ar/03-rebel-animated.glb",
+        "usdz": "assets/models/ar/03-rebel-animated.usdz",
         "rigged": null,
         "animations": [
           "greet_01",
@@ -143,6 +151,8 @@
       "concept": "assets/concepts/04-wanderer-concept.jpg",
       "clip": "assets/video/reveal-04-wanderer.mp4",
       "glb": "assets/models/04-wanderer.glb",
+      "view": "assets/models/ar/04-wanderer.glb",
+      "usdz": "assets/models/ar/04-wanderer.usdz",
       "fbx": "assets/models/04-wanderer-quad.fbx",
       "game": null
     },
@@ -173,6 +183,8 @@
       "concept": "assets/concepts/05-midnight-concept.jpg",
       "clip": "assets/video/reveal-05-midnight.mp4",
       "glb": "assets/models/05-midnight.glb",
+      "view": "assets/models/ar/05-midnight.glb",
+      "usdz": "assets/models/ar/05-midnight.usdz",
       "fbx": "assets/models/05-midnight-quad.fbx",
       "game": null
     }

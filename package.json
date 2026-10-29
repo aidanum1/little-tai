@@ -18,6 +18,7 @@
     "generate:all": "tsx scripts/run-pipeline.ts",
     "download:assets": "tsx scripts/download-assets/index.ts",
     "convert:models": "tsx scripts/convert/fbx-to-glb.ts",
+    "convert:ar": "tsx scripts/convert/ar-assets.ts",
     "tripo:balance": "tsx scripts/tripo/balance.ts",
     "qc:models": "tsx scripts/qc/inspect-models.ts",
     "audio:score": "tsx scripts/audio/generate-score.ts",

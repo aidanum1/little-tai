@@ -44,6 +44,7 @@ Reference photos go in `public/photos/tai_01.jpg … tai_09.jpg`. They are git-i
 | `npm run generate:all` | All stages (asks before spending; `-- --yes` for non-interactive) |
 | `npm run tripo:balance` | Credit balance |
 | `npm run convert:models` | FBX (Tripo quad output) → GLB via local Blender, turned to face +Z |
+| `npm run convert:ar` | Phone/AR copies in `public/models/ar/`: GLB with 2048 px textures + USDZ for iOS Quick Look (Blender; also run by `build:site`) |
 | `npm run qc:models` | Parses every GLB (meshes, bounds, textures, skins, clips) and refreshes `src/characters/asset-manifest.json` |
 | `npm run audio:score` / `npm run audio:short` / `npm run audio:sfx` | Re-synthesise the film score / the short's score / sound effects (deterministic, no samples) |
 | `npm run dev` | Remotion Studio preview (all compositions, plus a 3D `Turntable` viewer) |
@@ -109,6 +110,10 @@ lights snap on). Dev-only contact sheet of every clip: composition `RigPreview` 
 
 All site paths are relative, so it works at `https://<user>.github.io/<repo>/`. The page shows only assets listed in
 `site/data.json`.
+
+**AR:** "View in your room" uses the light GLB with Android Scene Viewer (then WebXR) and the pre-built USDZ with iOS
+Quick Look (Safari); the animated Rebel dances in Quick Look. AR needs a phone, so on a computer the viewer shows a QR
+code that opens the same figure on the phone (`?figure=<id>`, `&game=1` for the animated one).
 
 ## Project layout
 

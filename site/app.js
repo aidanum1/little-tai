@@ -154,10 +154,69 @@ const dialog = $("#viewer");
 const mv = $("#model");
 const animBar = $("#anim-bar");
 
+const arBox = $("#viewer-ar");
+const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+
+/** Link that reopens this figure's viewer, e.g. on a phone: ?figure=<id>[&game=1]. */
+const figureLink = (e, game) => {
+  const u = new URL(location.href);
+  u.search = "";
+  u.hash = "";
+  u.searchParams.set("figure", e.id);
+  if (game) u.searchParams.set("game", "1");
+  return u.toString();
+};
+
+/**
+ * AR needs a phone: iOS opens Quick Look with the pre-built USDZ, Android opens Scene Viewer (then WebXR).
+ * On a computer the button hands off with a QR code instead of doing nothing.
+ */
+function arControls(e, game) {
+  arBox.replaceChildren();
+  if (mv.canActivateAR) {
+    arBox.append(el("button", { class: "btn btn-ghost", type: "button", onclick: () => mv.activateAR() }, "View in your room (AR)"));
+    return;
+  }
+  if (coarsePointer || typeof qrcode !== "function") {
+    arBox.append(el("p", { class: "ar-note" }, "AR isn't available in this browser. On iPhone open the page in Safari; on Android use Chrome with Google Play Services for AR."));
+    return;
+  }
+  const qr = qrcode(0, "M");
+  qr.addData(figureLink(e, game));
+  qr.make();
+  const panel = el("div", { class: "ar-qr", id: "ar-qr", hidden: true });
+  panel.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 4, scalable: true, alt: `QR code: open ${e.name} on your phone` });
+  panel.append(el("p", {}, `Scan with your phone's camera, then tap “View in your room” to place ${e.name} on your desk or floor.`));
+  const toggle = el(
+    "button",
+    {
+      class: "btn btn-ghost",
+      type: "button",
+      "aria-expanded": "false",
+      "aria-controls": "ar-qr",
+      onclick: () => {
+        panel.hidden = !panel.hidden;
+        toggle.setAttribute("aria-expanded", String(!panel.hidden));
+      },
+    },
+    "View in AR on your phone",
+  );
+  arBox.append(toggle, panel);
+}
+
+mv.addEventListener("ar-status", (ev) => {
+  if (ev.detail.status === "failed") arBox.replaceChildren(el("p", { class: "ar-note" }, "AR couldn't start on this device. Your phone may not support ARCore / ARKit."));
+});
+
 function openViewer(e, game = false) {
-  const src = game ? e.game?.animated || e.game?.rigged : e.glb;
+  // the viewer and AR load the light copy (2048 px textures); downloads stay full resolution
+  const src = game ? e.game?.view || e.game?.animated || e.game?.rigged : e.view || e.glb;
   if (!src) return;
+  const sameModel = mv.src === src && mv.loaded;
   mv.src = src;
+  const usdz = game ? e.game?.usdz : e.usdz;
+  if (usdz) mv.setAttribute("ios-src", usdz);
+  else mv.removeAttribute("ios-src");
   mv.alt = `${e.name} — 3D collectible figure`;
   // clips such as the dance travel: frame wider than the turntable view
   mv.setAttribute("camera-orbit", game ? "15deg 78deg 150%" : "15deg 78deg 105%");
@@ -173,32 +232,29 @@ function openViewer(e, game = false) {
       game && e.game?.animated ? el("a", { class: "btn btn-gold", href: e.game.animated, download: "" }, "Animated GLB") : null,
       !game && e.glb ? el("a", { class: "btn btn-gold", href: e.glb, download: "" }, "Download GLB") : null,
       !game && e.fbx ? el("a", { class: "btn btn-ghost", href: e.fbx, download: "" }, "Quad FBX") : null,
-      el("button", { class: "btn btn-ghost", type: "button", onclick: () => mv.activateAR?.() }, "View in AR"),
     ].filter(Boolean),
   );
+  arBox.replaceChildren();
   animBar.replaceChildren();
   animBar.hidden = true;
-  if (game) {
-    mv.addEventListener(
-      "load",
-      () => {
-        mv.jumpCameraToGoal?.();
-        const names = mv.availableAnimations ?? [];
-        if (!names.length) return;
-        animBar.hidden = false;
-        const pick = (name) => {
-          mv.animationName = name;
-          mv.play({ repetitions: Infinity });
-          animBar.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.name === name)));
-        };
-        for (const name of names) animBar.append(el("button", { type: "button", "data-name": name, onclick: () => pick(name) }, clipLabel(name)));
-        pick(names.includes("idle") ? "idle" : names[0]);
-      },
-      { once: true },
-    );
-  } else {
-    mv.pause?.();
-  }
+  const onReady = () => {
+    arControls(e, game);
+    if (!game) return;
+    mv.jumpCameraToGoal?.();
+    const names = mv.availableAnimations ?? [];
+    if (!names.length) return;
+    animBar.hidden = false;
+    const pick = (name) => {
+      mv.animationName = name;
+      mv.play({ repetitions: Infinity });
+      animBar.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.name === name)));
+    };
+    for (const name of names) animBar.append(el("button", { type: "button", "data-name": name, onclick: () => pick(name) }, clipLabel(name)));
+    pick(names.includes("idle") ? "idle" : names[0]);
+  };
+  if (sameModel) requestAnimationFrame(onReady);
+  else mv.addEventListener("load", onReady, { once: true });
+  if (!game) mv.pause?.();
   dialog.showModal();
 }
 
@@ -208,3 +264,10 @@ dialog.addEventListener("click", (ev) => {
 dialog.addEventListener("close", () => {
   mv.pause?.();
 });
+
+// ---- deep link: ?figure=<id>[&game=1] opens that figure (the AR QR code points here) ---------------
+{
+  const params = new URLSearchParams(location.search);
+  const linked = editions.find((e) => e.id === params.get("figure"));
+  if (linked) openViewer(linked, params.get("game") === "1" && Boolean(linked.game));
+}
